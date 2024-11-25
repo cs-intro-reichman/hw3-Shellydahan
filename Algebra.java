@@ -26,42 +26,128 @@ public class Algebra {
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
 		// Replace the following statement with your code
-		return 0;
+		int a= x1;
+		int b= x2;
+		if(b>0)
+		{
+		for(int i=0;i<=b;i++)
+		{
+			a++;
+		}
+	    }
+		else 
+		{
+	    for(int i=0;i>b;i--)
+		{
+			a--;
+		}
+		}
+	    
+		return a;
 	}
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
 		// Replace the following statement with your code
-		return 0;
+		int a= x1;
+		int b= x2;
+		if(b>0)
+		{
+		for(int i=0;i<=b;i++)
+		{
+			a--;
+		}
+	    }
+		else 
+		{
+	    for(int i=0;i>b;i--)
+		{
+			a++;
+		}
+		}
+	    
+		return a;
 	}
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
         // Replace the following statement with your code
-		return 0;
+		int a=0;
+		int x1moch=x1;
+		int x2moch=x2;
+		if(x1<0)
+		  x1moch=minus(x1, x1);
+		if(x2<0)
+		  x2moch=minus(x1, x2);
+		for(int i=1;i<x2moch;i++)
+		   a=plus(a, x1moch);
+		if(x1<0 ^ x2<0)
+		   a=minus(x1,a);
+		return a;
 	}
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
 		// Replace the following statement with your code
-		return 0;
+		int count=x;
+		for(int i=0;i<n-1;i++)
+		  count= times(count,x);
+		if(n>0)
+		  return count;
+		else
+		   return 1;
 	}
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
         // Replace the following statement with your code
-		return 0;
+		int count=0;
+		int x1moch=x1;
+		int x2moch=x2;
+		if(x1<0)
+		  x1moch=minus(x1, x1);
+	    if(x1<0)
+		  x2moch=minus(x1, x2);
+	    int foundx2=x1moch;
+		while(foundx2>=x2moch)
+		{
+           foundx2=minus(foundx2, x2moch);
+		   count++;
+		}
+		if(x1<0 ^ x2<0)
+		   count=minus(x1, count);
+		return count;
 	}
 
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
         // Replace the following statement with your code
-		return 0;
+		int d, n, t=0;
+		if(x1<x2)
+		  return x1;
+		else
+		{
+		 d=div(x1,x2);
+		 t=times(d, x2);
+		 n=minus(x1, t);
+		}
+
+		return n;
 	}	
 
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
         // Replace the following statement with your code
+		int n=0;
+		for(int i=0;i<x;i++)
+		{
+		  n=pow(i,2);
+		  if(n==x)
+		     return n;
+		  else
+		      if(n>x)
+			    return i--;
+		}
 		return 0;
 	}	  	  
 }
