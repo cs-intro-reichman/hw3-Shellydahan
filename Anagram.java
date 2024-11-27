@@ -1,4 +1,3 @@
-
 /** Functions for checking if a given string is an anagram. */
 public class Anagram {
 	public static void main(String args[]) {
@@ -31,8 +30,9 @@ public class Anagram {
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
-	private static String preProcess(String str) {
+	public static String preProcess(String str) {
 		// Replace the following statement with your code
+<<<<<<< HEAD
 		String anagram=str.toLowerCase();
 		String preprocess="";
         for(int i=0;i<anagram.length();i++)
@@ -42,6 +42,9 @@ public class Anagram {
 			  preprocess=preprocess+c;		
 		}
 		return preprocess;
+=======
+		return "";
+>>>>>>> upstream/main
 	} 
 
 	// Returns true if the two given strings are anagrams, false otherwise.
@@ -82,6 +85,7 @@ public class Anagram {
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
 		// Replace the following statement with your code
+<<<<<<< HEAD
 		String s="";
 		for(int i=0;i<str.length();i++)
 		{
@@ -99,5 +103,8 @@ public class Anagram {
 			if(i!=d)
               n=n+str.charAt(i); 
 		  return n;
+=======
+		return "";
+>>>>>>> upstream/main
 	}
 }
