@@ -71,7 +71,7 @@ public class Algebra {
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
-<<<<<<< HEAD
+
         // Replace the following statement with your code
 		int a=0;
 		int x1moch=x1;
@@ -85,10 +85,7 @@ public class Algebra {
 		if(x1<0 ^ x2<0)
 		   a=minus(x1,a);
 		return a;
-=======
-		// Replace the following statement with your code
-		return 0;
->>>>>>> upstream/main
+
 	}
 
 	// Returns x^n (for n >= 0)
@@ -105,7 +102,7 @@ public class Algebra {
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
-<<<<<<< HEAD
+
         // Replace the following statement with your code
 		int count=0;
 		int x1moch=x1;
@@ -123,15 +120,12 @@ public class Algebra {
 		if(x1<0 ^ x2<0)
 		   count=minus(x1, count);
 		return count;
-=======
-		// Replace the following statement with your code
-		return 0;
->>>>>>> upstream/main
+
 	}
 
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
-<<<<<<< HEAD
+
         // Replace the following statement with your code
 		int d, n, t=0;
 		if(x1<x2)
@@ -144,15 +138,12 @@ public class Algebra {
 		}
 
 		return n;
-=======
-		// Replace the following statement with your code
-		return 0;
->>>>>>> upstream/main
+
 	}	
 
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
-<<<<<<< HEAD
+
         // Replace the following statement with your code
 		int n=0;
 		for(int i=0;i<x;i++)
@@ -164,9 +155,7 @@ public class Algebra {
 		      if(n>x)
 			    return i--;
 		}
-=======
-		// Replace the following statement with your code
->>>>>>> upstream/main
+
 		return 0;
 	}	  	  
 }
