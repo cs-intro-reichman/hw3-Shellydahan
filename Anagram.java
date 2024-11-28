@@ -35,13 +35,19 @@ public class Anagram {
 
 		String anagram=str.toLowerCase();
 		String preprocess="";
+		boolean found = false;
         for(int i=0;i<anagram.length();i++)
 		{
            char c= anagram.charAt(i);
 			if(c>='a'&&c<='z')
-			  preprocess=preprocess+c;		
+			  preprocess=preprocess+c;	
+			  else if (c == ' ' && !found){
+				preprocess += c;
+				found = !found;
+			}	
 		}
-		return preprocess;
+		str=preprocess;
+		return str;
 
 	
 	} 
@@ -90,18 +96,10 @@ public class Anagram {
 		{
 			int d=(int)(Math.random()*str.length());
 			s=s+str.charAt(d);
-			str=deletChar(str, d);
+			str = str.substring(0, d) + str.substring(d + 1);
 		}
-		return s;
+		str=s;
+		return str;
 	}
 
-	public static String deletChar(String str, int d)
-	{
-		String n=""; 
-		for(int i=0;i<str.length();i++)
-			if(i!=d)
-              n=n+str.charAt(i); 
-		  return n;
-		
-	}
 }
