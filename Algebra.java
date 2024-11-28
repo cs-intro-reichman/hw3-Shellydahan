@@ -30,7 +30,7 @@ public class Algebra {
 		int b= x2;
 		if(b>0)
 		{
-		for(int i=0;i<=b;i++)
+		for(int i=0;i<b;i++)
 		{
 			a++;
 		}
@@ -53,7 +53,7 @@ public class Algebra {
 		int b= x2;
 		if(b>0)
 		{
-		for(int i=0;i<=b;i++)
+		for(int i=0;i<b;i++)
 		{
 			a--;
 		}
@@ -73,18 +73,19 @@ public class Algebra {
 	public static int times(int x1, int x2) {
 
         // Replace the following statement with your code
-		int a=0;
-		int x1moch=x1;
-		int x2moch=x2;
-		if(x1<0)
-		  x1moch=minus(x1, x1);
-		if(x2<0)
-		  x2moch=minus(x1, x2);
-		for(int i=1;i<x2moch;i++)
-		   a=plus(a, x1moch);
-		if(x1<0 ^ x2<0)
-		   a=minus(x1,a);
-		return a;
+		if (x2 == 0) return 0;
+        int a = x1;
+		if (x2 > 0){
+			for (int i = 1; i < x2; i++){
+				x1 = plus(x1, a);
+			}
+		} else {
+			for (int i = 1; i > x2; i--){
+				x1 = minus(x1, a);
+			}
+			
+		}
+		return x1;
 
 	}
 
@@ -92,10 +93,10 @@ public class Algebra {
 	public static int pow(int x, int n) {
 		// Replace the following statement with your code
 		int count=x;
-		for(int i=0;i<n-1;i++)
-		  count= times(count,x);
+		for(int i=1;i<n;i++)
+		  x= times(x,count);
 		if(n>0)
-		  return count;
+		  return x;
 		else
 		   return 1;
 	}
@@ -104,22 +105,34 @@ public class Algebra {
 	public static int div(int x1, int x2) {
 
         // Replace the following statement with your code
-		int count=0;
-		int x1moch=x1;
-		int x2moch=x2;
-		if(x1<0)
-		  x1moch=minus(x1, x1);
-	    if(x1<0)
-		  x2moch=minus(x1, x2);
-	    int foundx2=x1moch;
-		while(foundx2>=x2moch)
-		{
-           foundx2=minus(foundx2, x2moch);
-		   count++;
+		if (x2 == 0) return -1;
+		int mana = 0;
+		int count = x1;
+
+		if (x1 < 0){
+			if (x2 < 0){
+				while (x1 <= x2){
+					x1 = minus(x1, x2);
+					mana++;
+				}
+				return mana;
+			} else {
+				x1 = minus(x1, x1);
+				x1 = minus(x1, count);
+				while (x1 >= x2){
+					x1 = minus(x1, x2);
+					mana--;
+				}
+			}
+		} else {
+			while (x1 >= x2){
+				x1 = minus(x1, x2);
+				mana++;
+			}
 		}
-		if(x1<0 ^ x2<0)
-		   count=minus(x1, count);
-		return count;
+
+		
+		return mana;
 
 	}
 
@@ -127,18 +140,15 @@ public class Algebra {
 	public static int mod(int x1, int x2) {
 
         // Replace the following statement with your code
-		int d, n, t=0;
 		if(x1<x2)
 		  return x1;
 		else
 		{
-		 d=div(x1,x2);
-		 t=times(d, x2);
-		 n=minus(x1, t);
+			while (x1 >= x2){
+				x1 = minus(x1, x2);
+			}
+			return x1;
 		}
-
-		return n;
-
 	}	
 
 	// Returns the integer part of sqrt(x) 
@@ -157,5 +167,11 @@ public class Algebra {
 		}
 
 		return 0;
+
+		//int result = 0;
+       // while (times(result, result) <= x) {
+        //    result++;
+      //  }
+       // return minus(result, 1);
 	}	  	  
 }

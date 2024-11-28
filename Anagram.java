@@ -7,7 +7,7 @@ public class Anagram {
 		System.out.println(isAnagram("Madam Curie","Radium came")); // true
 		System.out.println(isAnagram("Tom Marvolo Riddle","I am Lord Voldemort")); // true
 
-		// Tests the preProcess function.
+	// Tests the preProcess function.
 		//System.out.println(preProcess("What? No way!!!"));
 		
 		// Tests the randomAnagram function.
@@ -18,10 +18,10 @@ public class Anagram {
 		Boolean pass = true;
 		//// 10 can be changed to much larger values, like 1000
 		for (int i = 0; i < 10; i++) {
-			String randomAnagram = randomAnagram(str);
+			//String randomAnagram = randomAnagram(str);
 			//System.out.println(randomAnagram);
-			pass = pass && isAnagram(str, randomAnagram);
-			if (!pass) break;
+			//pass = pass && isAnagram(str, randomAnagram);
+			//if (!pass) break;
 		}
 		//System.out.println(pass ? "test passed" : "test Failed");
 	}  
