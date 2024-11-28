@@ -8,10 +8,10 @@ public class Anagram {
 		System.out.println(isAnagram("Tom Marvolo Riddle","I am Lord Voldemort")); // true
 
 	// Tests the preProcess function.
-		//System.out.println(preProcess("What? No way!!!"));
+		System.out.println(preProcess("What? No way!!!"));
 		
 		// Tests the randomAnagram function.
-		//System.out.println("silent and " + randomAnagram("silent") + " are anagrams.");
+		System.out.println("silent and " + randomAnagram("silent") + " are anagrams.");
 		
 		// Performs a stress test of randomAnagram 
 		String str = "1234567";
@@ -54,52 +54,35 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		String fixedStr1 = preProcess(str1);
-		String fixedStr2 = preProcess(str2);
-		
-		if (fixedStr1.length() != fixedStr2.length()) return false;
-
-		for (int i = 0; i < fixedStr1.length(); i++){
-			boolean found = false;
-			for (int j = 0; j < fixedStr2.length(); j++){
-				if (fixedStr1.charAt(i) == fixedStr2.charAt(j)){
-					found = true;
-					fixedStr2 = fixedStr2.substring(0, j) + fixedStr2.substring(j + 1);
-					break;
-				}
+		boolean isanagram=true;
+	    str1= preProcess(str1);
+		str2= preProcess(str2);
+		if(str1.length()==str2.length())
+		{
+	    for(int i=0;i<str1.length();i++)
+		{
+			char c= str1.charAt(i);
+			for(int j=0;j<str2.length();j++)
+			{
+				int n= str2.indexOf(c);
+				if(n==(-1))
+				 isanagram=false;
 			}
-			if (found == false) return false;
 		}
-		return true;
-		//boolean isanagram=true;
-		//str1= preProcess(str1);
-		//str2= preProcess(str2);
-		//if(str1.length()==str2.length())
-		//{
-		//for(int i=0;i<str1.length();i++)
-		//{
-		//	char c= str1.charAt(i);
-		//	for(int j=0;j<str2.length();j++)
-		//	{
-		//		int n= str2.indexOf(c);
-		//		if(n==(-1))
-		//		 isanagram=false;
-		//	}
-		//}
-		//for(int i=0;i<str2.length();i++)
-		//{
-		//	char c= str2.charAt(i);
-		//	for(int j=0;j<str1.length();j++)
-		//	{
-		//		int n= str1.indexOf(c);
-		//		if(n==(-1))
-		//		 isanagram=false;
-		//	}
-		//}
-	//}
-	//else 
-	//    isanagram=false;
-	//	return isanagram;
+		for(int i=0;i<str2.length();i++)
+		{
+			char c= str2.charAt(i);
+			for(int j=0;j<str1.length();j++)
+			{
+				int n= str1.indexOf(c);
+				if(n==(-1))
+				 isanagram=false;
+			}
+		}
+	}
+	else 
+	    isanagram=false;
+		return isanagram;
 	}
 	   
 	   
@@ -109,7 +92,7 @@ public class Anagram {
 		// Replace the following statement with your code
 
 		String s="";
-		for(int i=0;i<str.length();i++)
+		while(str.length()>0)
 		{
 			int d=(int)(Math.random()*str.length());
 			s=s+str.charAt(d);
