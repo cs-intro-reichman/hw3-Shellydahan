@@ -54,35 +54,52 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		boolean isanagram=true;
-		str1= preProcess(str1);
-		str2= preProcess(str2);
-		if(str1.length()==str2.length())
-		{
-		for(int i=0;i<str1.length();i++)
-		{
-			char c= str1.charAt(i);
-			for(int j=0;j<str2.length();j++)
-			{
-				int n= str2.indexOf(c);
-				if(n==(-1))
-				 isanagram=false;
+		String fixedStr1 = preProcess(str1);
+		String fixedStr2 = preProcess(str2);
+		
+		if (fixedStr1.length() != fixedStr2.length()) return false;
+
+		for (int i = 0; i < fixedStr1.length(); i++){
+			boolean found = false;
+			for (int j = 0; j < fixedStr2.length(); j++){
+				if (fixedStr1.charAt(i) == fixedStr2.charAt(j)){
+					found = true;
+					fixedStr2 = fixedStr2.substring(0, j) + fixedStr2.substring(j + 1);
+					break;
+				}
 			}
+			if (found == false) return false;
 		}
-		for(int i=0;i<str2.length();i++)
-		{
-			char c= str2.charAt(i);
-			for(int j=0;j<str1.length();j++)
-			{
-				int n= str1.indexOf(c);
-				if(n==(-1))
-				 isanagram=false;
-			}
-		}
-	}
-	else 
-	    isanagram=false;
-		return isanagram;
+		return true;
+		//boolean isanagram=true;
+		//str1= preProcess(str1);
+		//str2= preProcess(str2);
+		//if(str1.length()==str2.length())
+		//{
+		//for(int i=0;i<str1.length();i++)
+		//{
+		//	char c= str1.charAt(i);
+		//	for(int j=0;j<str2.length();j++)
+		//	{
+		//		int n= str2.indexOf(c);
+		//		if(n==(-1))
+		//		 isanagram=false;
+		//	}
+		//}
+		//for(int i=0;i<str2.length();i++)
+		//{
+		//	char c= str2.charAt(i);
+		//	for(int j=0;j<str1.length();j++)
+		//	{
+		//		int n= str1.indexOf(c);
+		//		if(n==(-1))
+		//		 isanagram=false;
+		//	}
+		//}
+	//}
+	//else 
+	//    isanagram=false;
+	//	return isanagram;
 	}
 	   
 	   
