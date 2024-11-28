@@ -156,22 +156,10 @@ public class Algebra {
 
         // Replace the following statement with your code
 		int n=0;
-		for(int i=0;i<x;i++)
-		{
-		  n=pow(i,2);
-		  if(n==x)
-		     return n;
-		  else
-		      if(n>x)
-			    return i--;
-		}
+		while(times(n,n)<=x)
+		  n++;
+		n-=1;
+		return n;
 
-		return 0;
-
-		//int result = 0;
-       // while (times(result, result) <= x) {
-        //    result++;
-      //  }
-       // return minus(result, 1);
 	}	  	  
 }
